@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #111111;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+        }
+
+        .wrap {
+            background: #111111;
+            padding: 25px;
+            box-shadow: 0px 0px 8px -1px #fff;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .mobilenav {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid #d5d6d8;
+            color: #d5d6d8;
+            position: relative;
+            margin-right: 10px;
+            transition: 1.5s ease;
+        }
+
+        .fas,
+        .fab {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        .checkbox {
+            width: 65px;
+            height: 35px;
+            position: relative;
+            appearance: none;
+            background: #111111;
+            border: 1px solid white;
+            border-radius: 25px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .checkbox:before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            width: 28px;
+            height: 28px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            transition: all 0.8s ease;
+        }
+
+        .checkbox:checked:before {
+            left: 32px;
+            background: #e4405f;
+        }
+
+        .wifi.active .mobilenav {
+            background: #e4405f;
+            border-color: #e4405f;
+            color: #fff;
+        }
+
+        .bluetooth.active .mobilenav {
+            background: #e4405f;
+            border-color: #e4405f;
+            color: #fff;
+        }
+
+        .plane.active .mobilenav {
+            background: #e4405f;
+            border-color: #e4405f;
+            color: #fff;
+        }
+
+        .location.active .mobilenav {
+            background: #e4405f;
+            border-color: #e4405f;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrap">
+            <div class="item wifi">
+                <div class="item_left">
+                    <div class="mobilenav">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                </div>
+                <div class="item_right">
+                    <input type="checkbox" class="checkbox">
+                </div>
+            </div>
+            <div class="item bluetooth">
+                <div class="item_left">
+                    <div class="mobilenav">
+                        <i class="fab fa-bluetooth"></i>
+                    </div>
+                </div>
+                <div class="item_right">
+                    <input type="checkbox" class="checkbox">
+                </div>
+            </div>
+            <div class="item plane">
+                <div class="item_left">
+                    <div class="mobilenav">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                </div>
+                <div class="item_right">
+                    <input type="checkbox" class="checkbox">
+                </div>
+            </div>
+            <div class="item location">
+                <div class="item_left">
+                    <div class="mobilenav">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                </div>
+                <div class="item_right">
+                    <input type="checkbox" class="checkbox">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $(".checkbox").click(function () {
+                $(this).parents(".item").toggleClass("active");
+            })
+        });
+    </script>
+</body>
+
+</html>
